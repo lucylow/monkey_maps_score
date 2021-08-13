@@ -89,3 +89,4 @@ function calculateAverage() {
 
   $('.js-average').text((average/ $('.rating').length).toFixed(1))
 }
+
