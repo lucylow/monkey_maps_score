@@ -1,6 +1,12 @@
-@charset "UTF-8";
 body {
-  background-color: lightblue;
+				height: 100%;
+				background: radial-gradient(circle farthest-corner at 200px 0, #545454, #000);
+    			background-position: top left;
+    			font-family: 'Permanent Marker', 
+}
+
+p,h1 {
+   color: #ffc820;
 }
 
 .rating {
@@ -21,35 +27,44 @@ body {
   font-size: 30px;
   color: whitesmoke;
   position: relative;
-}
-.star.animate {
-  -webkit-animation: stretch-bounce 0.5s ease-in-out;
-}
-.star.hidden {
-  opacity: 0;
+
+  
+  &.animate {
+     -webkit-animation: stretch-bounce .5s ease-in-out;
+  }
+  
+  &.hidden {
+    opacity: 0;
+  }
 }
 
-.full:before {
-  font-family: fontAwesome;
-  display: inline-block;
-  content: "";
-  position: relative;
-  float: right;
-  z-index: 2;
+.full {
+  &:before {
+    font-family: fontAwesome;
+    display: inline-block;
+    content: "\f005";
+    position: relative;
+    float: right;
+    z-index: 2;
+  }
 }
 
-.half:before {
-  font-family: fontAwesome;
-  content: "";
-  position: absolute;
-  float: left;
-  z-index: 3;
+.half {
+  &:before {
+     font-family: fontAwesome;
+     content: "\f089";
+     position: absolute;
+     float: left;
+    z-index: 3;
+  }
 }
 
 .star-colour {
   color: #ffd700;
 }
 
+
+  
 @-webkit-keyframes stretch-bounce {
   0% {
     -webkit-transform: scale(1);
@@ -67,23 +82,32 @@ body {
     -webkit-transform: scale(1);
   }
 }
-.selected:before {
-  font-family: fontAwesome;
-  display: inline-block;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transform: scale(1);
-  opacity: 1;
-  z-index: 1;
-}
-.selected.pulse:before {
-  -webkit-transform: scale(3);
-  opacity: 0;
-}
-.selected.is-animated:before {
-  transition: 1s ease-out;
+
+.selected {
+  &:before {
+    font-family: fontAwesome;
+    display: inline-block;
+    content: "\f005";
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: scale(1);
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  &.pulse {
+    &:before {
+      -webkit-transform: scale(3);
+      opacity: 0;
+    }
+  }
+  
+  &.is-animated {
+    &:before {
+       transition: 1s ease-out;
+    }
+  }
 }
 
 .score {
@@ -108,16 +132,19 @@ body {
   font-size: 100%;
 }
 
+
 .average {
   font-family: arial;
   font-size: 20px;
-  color: indianred;
+  color: #ffc820;
   position: absolute;
-  top: 50%;
+  top: 150px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   text-align: center;
+  
+  .score-average {
+    padding-top: 30px;
+  }
 }
-.average .score-average {
-  padding-top: 30px;
-}
+
